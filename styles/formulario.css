@@ -1,7 +1,7 @@
 
-.login-page {
+.formulario {
     width: 660px;
-    padding: 0 0 0;
+    padding: 8% 0 0;
     margin: auto;
   }
   .form {
@@ -9,12 +9,13 @@
     z-index: 1;
     background: #FFFFFF;
     max-width: 660px;
-    margin: 0 auto 10px;
+    margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form input {
+    outline: 0;
     background: #f2f2f2;
     width: 100%;
     border: 0;
@@ -41,8 +42,8 @@
     background: #ffffff; 
   }
   img{
-    height: 15%;
-    width: 15%;
+    height: 5%;
+    width: 5%;
     margin: 0 0 0 280px;
   }
   footer {

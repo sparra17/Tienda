@@ -8,28 +8,28 @@
 </head>
 <body>
     <ul>
-        <li><a href="ventas.html" class="active">Ventas</a></li>
+        <li><a href="ventas.html">Ventas</a></li>
         <li>
-            <div class="dropdown">
-                <button class="dropbtn">Inventario 
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                  <a href="Inventario_administrar.html">Administrar</a>
-                  <a href="Inventario_reabastecer.html">Reabastecer</a>
-                </div>
+        <div class="dropdown">
+            <button class="dropbtn active">Inventario 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Inventario_administrar.html" >Administrar</a>
+            <a href="Inventario_reabastecer.html" class="active">Reabastecer</a>
+        </div>
         </li>
         <li><div class="dropdown">
-            <button class="dropbtn">Empleados 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="Nuevo_Empleado.html">Registrar</a>
-              <a href="Corregir_Empleado.html">Corregir datos</a>
-            </div></li>
+        <button class="dropbtn">Empleados 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Nuevo_Empleado.html">Registrar</a>
+            <a href="Corregir_Empleado.html">Corregir datos</a>
+        </div></li>
         <li><p id="user">Usuario</p></li>
         <li style="float:right"><a href="login.html" id="Salir">Salir</a></li>
-      </ul>
+    </ul>
     <div id="Lista-Producto">
         <h4>Listado de inventario</h4>
         <input type="text" id="buscador" placeholder="Buscador de productos">
@@ -70,7 +70,7 @@
             </table>
     </div>
     <div id="Lista-Venta">
-        <h4>Listado de productos</h4>
+        <h4>Listado de productos nuevos</h4>
         <br>
             <table class="tabla-venta">
                 <thead>
@@ -98,8 +98,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p style="font-size: 25px;">Total:60</p>
-            <button id="Cobrar">Cobrar</button>
+            <button id="Cobrar">Añadir al inventario</button>
     </div>
 </body>
 </html>

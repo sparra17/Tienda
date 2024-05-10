@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/Inventario.css">
+    <script src="https://kit.fontawesome.com/d00178e030.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li>
+        <div class="dropdown">
+            <button class="dropbtn active">Inventario 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Inventario_administrar.html"  >Administrar</a>
+            <a href="Inventario_reabastecer.html">Reabastecer</a>
+        </div>
+        </li>
+        <li><div class="dropdown">
+        <button class="dropbtn active">Empleados 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Nuevo_Empleado.html">Registrar</a>
+            <a href="Corregir_Empleado.html" class="active">Corregir datos</a>
+        </div></li>
+        <li><p id="user">Usuario</p></li>
+        <li style="float:right"><a href="login.html" id="Salir">Salir</a></li>
+    </ul>
+    <div id="Lista-Producto">
+        <h4>Listado de empleados</h4>
+        <input type="text" id="buscador" placeholder="Buscador de empleados">
+        <br>
+            <table class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th id="Nombre">Nombre</th>
+                        <th id="Sexo">Sexo</th>
+                        <th id="Edad">Edad</th>
+                        <th id="Puesto">Puesto</th>
+                        <th id="Direccion">Direccion</th>
+                        <th id="Telefono">Telefono</th>
+                        <th id="CURP">CURP</th>
+                        <th id="RFC">RFC</th>
+                        <th id="Salario">Salario</th>
+                        <th id="Horario">Horario</th>
+                        <th id="Opciones">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Lopez Hernandez Gomez</td>
+                        <td>Masculino</td>
+                        <td>21</td>
+                        <td>Cajero</td>
+                        <td>Yacatitas #13</td>
+                        <td>445125911</td>
+                        <td>ASDFGHJKLPOIUYT</td>
+                        <td>ASDFGHJKLP</td>
+                        <td>$512</td>
+                        <td>Matutino</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Juan Lopez Hernandez Gomez</td>
+                        <td>Masculino</td>
+                        <td>21</td>
+                        <td>Cajero</td>
+                        <td>Yacatitas #13</td>
+                        <td>445125911</td>
+                        <td>ASDFGHJKLPOIUYT</td>
+                        <td>ASDFGHJKLP</td>
+                        <td>$512</td>
+                        <td>Matutino</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Juan Lopez Hernandez Gomez</td>
+                        <td>Masculino</td>
+                        <td>21</td>
+                        <td>Cajero</td>
+                        <td>Yacatitas #13</td>
+                        <td>445125911</td>
+                        <td>ASDFGHJKLPOIUYT</td>
+                        <td>ASDFGHJKLP</td>
+                        <td>$512</td>
+                        <td>Matutino</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>

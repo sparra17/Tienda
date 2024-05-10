@@ -27,20 +27,10 @@ ul {
 #Lista-Producto{
     background-color: rgb(255, 255, 255);
     position: absolute;
-    width: 48%;
+    width: 90%;
     height: 90%;
     top: 8%;
-    border-radius: 15px;
-}
-
-#Lista-Venta{
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    width: 48%;
-    height: 90%;
-    top: 8%;
-    left: 51.5%;
-    border-radius: 15px;
+    left: 5%;
 }
 h4{
     position: relative;
@@ -71,40 +61,28 @@ th, td{
 .tabla-venta{
     top: 21px;
 }
-#Cobrar{
-    position: relative;
-    top: 30px;
-    text-transform: uppercase;
-    outline: 0;
-    background: #4CAF50;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    cursor: pointer;
+.Editar{
+  position: relative;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
 }
-.AddProducto{
-    outline: 0;
-    background: #4CAF50;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    cursor: pointer;
+.Eliminar{
+  position: relative;
+  outline: 0;
+  background: #ff2323;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
 }
-.Basura{
-    outline: 0;
-    background: #ff2323;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    cursor: pointer; 
-}
-
 .dropdown {
     float: left;
     overflow: hidden;
@@ -154,4 +132,20 @@ th, td{
   #Salir{
     background-color: #ff2323;
   }
-  
+  #Opciones{
+    width: 25%;
+  }
+  .add{
+    position: relative;
+    left: 20%;
+    outline: 0;
+    background: #4CAF50;
+    width: 15%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+
+  }

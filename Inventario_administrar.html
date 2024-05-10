@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/Inventario.css">
+    <script src="https://kit.fontawesome.com/d00178e030.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li>
+        <div class="dropdown">
+            <button class="dropbtn active">Inventario 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Inventario_administrar.html"  class="active">Administrar</a>
+            <a href="Inventario_reabastecer.html">Reabastecer</a>
+        </div>
+        </li>
+        <li><div class="dropdown">
+        <button class="dropbtn">Empleados 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="Nuevo_Empleado.html">Registrar</a>
+            <a href="Corregir_Empleado.html">Corregir datos</a>
+        </div></li>
+        <li><p id="user">Usuario</p></li>
+        <li style="float:right"><a href="login.html" id="Salir">Salir</a></li>
+    </ul>
+    <div id="Lista-Producto">
+        <h4>Listado de inventario</h4>
+        <input type="text" id="buscador" placeholder="Buscador de productos">
+        <a href="Nuevo_Producto.html" class="Add">Añadir otro producto</a>
+        <br>
+            <table class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th id="Nombre">Producto</th>
+                        <th id="Proveedor">Proveedor</th>
+                        <th id="Existencia">Existencia</th>
+                        <th id="Precio">Precio</th>
+                        <th id="Opciones">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pan</td>
+                        <td>BIMBO</td>
+                        <td>1</td>
+                        <td>30</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Pan</td>
+                        <td>BIMBO</td>
+                        <td>1</td>
+                        <td>30</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Pan</td>
+                        <td>BIMBO</td>
+                        <td>1</td>
+                        <td>30</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
