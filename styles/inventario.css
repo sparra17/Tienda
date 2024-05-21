@@ -135,9 +135,10 @@ th, td{
   #Opciones{
     width: 25%;
   }
-  .add{
-    position: relative;
-    left: 20%;
+  .add {
+    position: relative; /* Ajusta la posición relativa al flujo normal */
+    left: 80%;          /* Desplaza el elemento 20% hacia la derecha */
+    top: 1%;           /* Desplaza el elemento 10% hacia abajo */
     outline: 0;
     background: #4CAF50;
     width: 15%;
@@ -147,10 +148,7 @@ th, td{
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
-
   }
-
-  
 #Lista-Producto2{
   background-color: rgb(255, 255, 255);
   position: relative;
@@ -159,4 +157,3 @@ th, td{
   margin-top: 34%;
   left: 5%;
 }
-
