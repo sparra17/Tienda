@@ -149,3 +149,13 @@ th, td{
     text-decoration: none;
 
   }
+
+  
+#Lista-Producto2{
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 90%;
+  height: 90%;
+  margin-top: 34%;
+  left: 5%;
+}
