@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores Y categorias</title>
+    <link rel="stylesheet" href="styles/Inventario.css">
+    <script src="https://kit.fontawesome.com/d00178e030.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Inventario 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="Inventario_administrar.html">Administrar</a>
+                      <a href="Inventario_reabastecer.html">Reabastecer</a>
+                    </div>
+            </li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Empleados 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="Nuevo_Empleado.html">Registrar</a>
+                  <a href="Corregir_Empleado.html">Corregir datos</a>
+                </div></li>
+            <li><a href="proveedores_categorias.html">Proveedores y Categorias</a></li>
+        <li><p id="user">Usuario</p></li>
+        <li style="float:right"><a href="login.html" id="Salir">Salir</a></li>
+    </ul>
+    <div id="Lista-Producto">
+        <h4>Listado de Categorias</h4>
+        <a href="proveedores_categorias_add.html" class="Add">Añadir categorias o proveedor</a>
+        <input type="text" id="buscador" placeholder="Buscador de categorias">
+        <br>
+            <table class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th id="Categoria">Categoria</th>
+                        <th id="Opciones">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Enlatado</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Congelado</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Lacteo</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <div id="Lista-Producto2">
+        <h4>Listado de Proveedor</h4>
+        <a href="proveedores_categorias_add.html" class="Add">Añadir categorias o proveedor</a>
+        <input type="text" id="buscador" placeholder="Buscador de Proveedores">
+        <br>
+            <table class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th id="Proveedor">Proveedor</th>
+                        <th id="Opciones">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cocacola</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Bimbo</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Gamesa</td>
+                        <td><Button class="Editar"><i class="fa-solid fa-pen-to-square"></i></Button>
+                            <Button class="Eliminar"><i class="fa-solid fa-trash"></i></Button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>

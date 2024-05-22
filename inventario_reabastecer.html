@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/ventas.css">
+    <script src="https://kit.fontawesome.com/d00178e030.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul>
+        <li><a href="ventas.html">Ventas</a></li>
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">Inventario 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="Inventario_administrar.html">Administrar</a>
+                  <a href="Inventario_reabastecer.html">Reabastecer</a>
+                </div>
+        </li>
+        <li><div class="dropdown">
+            <button class="dropbtn">Empleados 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="Nuevo_Empleado.html">Registrar</a>
+              <a href="Corregir_Empleado.html">Corregir datos</a>
+            </div></li>
+        <li><a href="proveedores_categorias.html">Proveedores y Categorias</a></li>
+        <li><p id="user">Usuario</p></li>
+        <li style="float:right"><a href="login.html" id="Salir">Salir</a></li>
+    </ul>
+    <div id="Lista-Producto">
+        <h4>Listado de inventario</h4>
+        <input type="text" id="buscador" placeholder="Buscador de productos">
+        <br>
+            <table class="tabla-productos">
+                <thead>
+                    <tr>
+                        <th id="Nombre">Producto</th>
+                        <th id="Existencia">Existencia</th>
+                        <th id="Cantidad">Cantidad Añadir</th>
+                        <th id="Precio">Precio</th>
+                        <th id="Add">AÑADIR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pan</td>
+                        <td>1</td>
+                        <td><input type="number" name="Cantidad" id="Cantidad" min="0" max="100" value="0"></td>
+                        <td>30</td>
+                        <td><Button class="AddProducto"><i class="fa-solid fa-plus"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Pan</td>
+                        <td>1</td>
+                        <td><input type="number" name="Cantidad" id="Cantidad" min="0" max="100" value="0"></td>
+                        <td>30</td>
+                        <td><Button class="AddProducto"><i class="fa-solid fa-plus"></i></Button></td>
+                    </tr>
+                    <tr>
+                        <td>Pan</td>
+                        <td>1</td>
+                        <td><input type="number" name="Cantidad" id="Cantidad" min="0" max="100" value="0"></td>
+                        <td>30</td>
+                        <td><Button class="AddProducto"><i class="fa-solid fa-plus"></i></Button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <div id="Lista-Venta">
+        <h4>Listado de productos nuevos</h4>
+        <br>
+            <table class="tabla-venta">
+                <thead>
+                    <tr>
+                        <th id="Nombre">Producto</th>
+                        <th id="Precio">Precio</th>
+                        <th id="Cantidad">Cantidad</th>
+                        <th id="Precio">Total</th>
+                        <th id="Delete">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pan</td>
+                        <td>1</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td><button class="Basura"><i class="fa-solid fa-trash"></i></button></td>
+                    <tr>
+                        <td>Pan</td>
+                        <td>1</td>
+                        <td>30</td>
+                        <td>30</td>
+                        <td><button class="Basura"><i class="fa-solid fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="Cobrar">Añadir al inventario</button>
+    </div>
+</body>
+</html>
