@@ -1,3 +1,4 @@
+
 create database Abarrotera3
 go
 use Abarrotera3
