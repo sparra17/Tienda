@@ -27,6 +27,7 @@
             <a href="Nuevo_Empleado.php">Registrar</a>
             <a href="Corregir_Empleado.php">Corregir datos</a>
         </div></li>
+        <li><a href="proveedores_categorias.php">Proveedores y Categorias</a></li>
         <li><p id="user">Usuario</p></li>
         <li style="float:right"><a href="login.php" id="Salir">Salir</a></li>
     </ul>

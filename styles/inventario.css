@@ -29,7 +29,7 @@ ul {
     position: absolute;
     width: 90%;
     height: 90%;
-    top: 8%;
+    top: 10%;
     left: 5%;
 }
 h4{
@@ -39,8 +39,8 @@ h4{
     font-size: 25px;
 }
 #buscador{
-    position: relative;
-    left: 20%;
+    position: absolute;
+    left: 10%;
     width: 60%;
     font-size: 20px;
 }
@@ -137,7 +137,7 @@ th, td{
   }
   .add {
     position: relative; /* Ajusta la posición relativa al flujo normal */
-    left: 80%;          /* Desplaza el elemento 20% hacia la derecha */
+    left: 70%;          /* Desplaza el elemento 20% hacia la derecha */
     top: 1%;           /* Desplaza el elemento 10% hacia abajo */
     outline: 0;
     background: #4CAF50;
@@ -149,3 +149,14 @@ th, td{
     cursor: pointer;
     text-decoration: none;
 }
+
+  
+#Lista-Producto2{
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 90%;
+  height: 90%;
+  margin-top: 45%;
+  left: 5%;
+}
+

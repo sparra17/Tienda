@@ -16,9 +16,15 @@
             Caducidad:
             <input type="date" placeholder="Caducidad"/>
             <input type="text" placeholder="Lote"/>
-            <input type="text" placeholder="Proveedor"/>
-            <input type="text" placeholder="Categoria"/>
-            
+            <select name="proveedor" id="proveedor">
+              <option value="1">CocaCola</option>
+              <option value="2">Pepsi</option>
+            </select>
+            <select name="Categoria" id="Categoria">
+              <option value="1">Congelados</option>
+              <option value="2">Enlatados</option>
+              <option value="3">Lacteos</option>
+            </select>
             
             <button>login</button>
           </form>

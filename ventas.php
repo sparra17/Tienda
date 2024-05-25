@@ -31,12 +31,17 @@
               <a href="Nuevo_Empleado.php">Registrar</a>
               <a href="Corregir_Empleado.php">Corregir datos</a>
             </div></li>
+        <li><a href="proveedores_categorias.php">Proveedores y Categorias</a></li>    
         <li><p id="user">Usuario</p></li>
         <li style="float:right"><a href="login.php" id="Salir">Salir</a></li>
       </ul>
+
+      <input type="hidden" name="idVenta" id="idVenta">
+
+    <div>
     <div id="Lista-Producto">
         <h4>Listado de inventario</h4>
-        
+    
         <br>
         <div class="card-body">
             <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
@@ -56,7 +61,7 @@
         </div>
     </div>
     <div id="Lista-Venta">
-        <h4>Listado de productos</h4>
+        <h4>Listado de Venta</h4>
         <br>
 
             <div class="card-body">
@@ -77,6 +82,7 @@
         </div>
             <p style="font-size: 25px;">Total:60</p>
             <button id="Cobrar">Cobrar</button>
+    </div>
     </div>
 
     <?php require_once("js.php"); ?>
