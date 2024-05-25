@@ -26,7 +26,7 @@
             <input type="text" placeholder="RFC" style="text-transform: uppercase;"/>
             <input type="number" placeholder="Sueldo">
             <input type="text" placeholder="Horario">
-            <button>Registrar</button>
+            <button>login</button>
           </form>
         </div>
       </div>
