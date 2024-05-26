@@ -80,7 +80,8 @@
                 </tbody>
             </table>
         </div>
-            <p style="font-size: 25px;">Total:60</p>
+            <p style="font-size: 25px;">Total:</p>
+            <p style="font-size: 25px;" id="txttotal">0</p>
             <button id="Cobrar">Cobrar</button>
     </div>
     </div>
