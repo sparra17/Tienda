@@ -71,8 +71,8 @@
                         <th id="Nombre">Producto</th>
                         <th id="Precio">Precio</th>
                         <th id="Cantidad">Cantidad</th>
-                        <th id="Precio">Total</th>
-                        <th id="Delete">Eliminar</th>
+                        <th id="PrecioVenta">Total</th>
+                        <th id="eliminar">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>

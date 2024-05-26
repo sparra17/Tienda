@@ -12,12 +12,15 @@
             foreach($datos as $row){
                 $sub_array = array();
 
-                $sub_array[] = $row["Producto"];
+                $sub_array[] = '<input type="hidden" id="idProducto" name="idProducto" value="'.$row["idProducto"].'"/>
+                    '.$row["Producto"]
+                    ;
+                    
                 $sub_array[] = $row["Stock"];
-                $sub_array[] = '<input type="text" name="" style="width: 70px;">';
-                $sub_array[] = $row["PrecioVenta"];
+                $sub_array[] = '<input type="text" name="" id="Cantidad" style="width: 70px;">';
+                $sub_array[] = '<input type="hidden" id="PrecioVenta" name="PrecioVenta" value="'.$row["PrecioVenta"].'"/>'.$row["PrecioVenta"];
 
-                $sub_array[] = '<Button class="AddProducto" onClick="agregar()" id=""><i class="fa-solid fa-plus"></i></Button>';
+                $sub_array[] = '<Button class="AddProducto" id="btnagregar"><i class="fa-solid fa-plus"></i></Button>';
                 $data[] = $sub_array;
             }
             $results = array(

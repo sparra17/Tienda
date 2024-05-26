@@ -150,13 +150,15 @@ go
  -----Guarda los productos temporales de la venta
  create table TempVentas(
 	idTempVenta int not null primary key identity,
-	Producto VARCHAR(100),
-	Cantidad int,
-	Total numeric(18,2)
+	idVenta int,
+	idProducto int,
+	PrecioVenta MONEY,
+	Cantidad float,
+	Total numeric (18,2),
+	Estado int 
  )
  go
- select * from TempVentas
- select * from Ventas
+
 
 
 -- Ensure the procedure is the first statement in the batch
@@ -558,7 +560,7 @@ Personas.Telefono,
 Personas.Curp, 
 Personas.RFC
 FROM            
-Proveedores INNER JOIN
+Proveedores INNER JOINDetalleVenta
 Personas ON Proveedores.idPersona = Personas.idPersona AND Proveedores.idPersona = Personas.idPersona
 where Proveedores.Estado = 1
 end
@@ -580,3 +582,99 @@ insert into Ventas
 set nocount off
 end
 go
+
+
+-------------25/05
+--insertar detalle venta
+
+alter procedure InsertDetalleVenta  
+@idVenta int,  
+@idProducto int,  
+@PrecioVenta float,  
+@Cantidad float  
+as  
+begin  
+    set nocount on 
+  
+    begin try  
+        begin transaction  
+  
+        if exists (select 1 from TempVentas where idVenta = @idVenta and idProducto = @idProducto and Estado = 1)  
+        begin  
+
+            update TempVentas  
+            set Cantidad = Cantidad + @Cantidad,  
+                Total = PrecioVenta * (Cantidad + @Cantidad)  
+            where idVenta = @idVenta and idProducto = @idProducto and Estado = 1;  
+        end  
+        else  
+        begin  
+
+            if exists (select 1 from TempVentas where idVenta = @idVenta and idProducto = @idProducto and Estado = 0)  
+            begin  
+
+                update TempVentas  
+                set Estado = 1,  
+                    Cantidad = @Cantidad,  
+                    Total = @PrecioVenta * @Cantidad  
+                where idVenta = @idVenta and idProducto = @idProducto and Estado = 0;  
+            end  
+            else  
+            begin  
+ 
+                insert into TempVentas (idVenta, idProducto, PrecioVenta,Cantidad,Total,Estado)  
+                values (@idVenta, @idProducto, @PrecioVenta, @Cantidad, @PrecioVenta * @Cantidad, 1);  
+            end  
+        end  
+  
+        commit transaction  
+    end try 
+    begin catch 
+        rollback transaction   
+        throw 
+		end catch   
+    set nocount off
+end
+go
+
+
+
+----- Listar Venta temporal
+create procedure ListarTempVenta
+@idVenta int
+as
+begin
+SELECT
+TempVentas.idTempVenta, 
+TempVentas.idVenta, 
+TempVentas.idProducto,
+Productos.Producto,
+TempVentas.PrecioVenta, 
+TempVentas.Cantidad, 
+TempVentas.Total, 
+TempVentas.Estado
+FROM            
+TempVentas INNER JOIN
+Productos ON TempVentas.idProducto = Productos.idProducto
+where TempVentas.idVenta = @idVenta and TempVentas.Estado = 1
+end
+go
+
+
+--Eliminar de venta temporal
+alter procedure EliminarTempVenta
+	@idTempVenta int
+as
+begin
+	update TempVentas
+	set Estado = 0
+	where idTempVenta=@idTempVenta
+end
+go
+
+
+
+
+
+select * from Ventas
+select * from TempVentas where idVenta = 45
