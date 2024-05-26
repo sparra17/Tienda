@@ -53,51 +53,91 @@ $(document).ready(function(){
 
 
 
-//////////////////////
-//$(document).ready(function(){
+$(document).on("click", "#btnagregar", function() {
+    var idVenta = $("#idVenta").val();
+    var idProducto = $("#idProducto").val();
+    var PrecioVenta = $("#PrecioVenta").val();
+    var Cantidad = $("#Cantidad").val();
+    var Stock = $("#Stock").val();
 
+    // Convertir las variables a números para asegurar la comparación correcta
+    var cantidad = parseFloat(Cantidad);
+    var stock = parseFloat(Stock);
 
-    
-    /*    $('#table_agregar').DataTable({
-            "aProcessing": true,
-            "aServerSide": true,
-            dom: 'Bfrtip',
-            buttons: [
+    // Verificar si la cantidad está vacía, no es un número o es mayor que el stock
+    if (isNaN(cantidad) || cantidad <= 0 || cantidad > stock) {
+        swal.fire({
+            title: 'Venta',
+            text: 'Error En La Cantidad',
+            icon: 'error'
+        });
+    } else {
+        $.post("controlador/venta.php?op=guardardetalle", {
+            idVenta: idVenta,
+            idProducto: idProducto,
+            PrecioVenta: PrecioVenta,
+            Cantidad: Cantidad
+        }, function(data) {
+            console.log(data);
+            listar(idVenta);
+        });
+    }
+});
 
-            ],
-            "ajax": {
-                url: "../../controller/producto.php?op=listartabla",
-                type: "post",
+function listar(idVenta){
+
+    $('#tabla_venta').DataTable({
+        "aProcessing": true,
+        "aServerSide": true,
+        dom: 'Bfrtip',
+        buttons: [
+            
+        ],
+        "ajax": {
+            url: "controlador/venta.php?op=listardetalle",
+            type: "post",
+            data:{idVenta:idVenta}
+        },
+        "bDestroy": true,
+        "responsive": true,
+        "bInfo": true,
+        "iDisplayLength": 10,
+        "order": [[0, "asc"]],
+        "language":{
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "",
+            "sInfoEmpty":      "",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
             },
-            "bDestroy": true,
-            "responsive": true,
-            "bInfo": true,
-            "iDisplayLength": 1,
-            "order": [[0, "asc"]],
-            "language":{
-                "sProcessing":     "Procesando...",
-                "sLengthMenu":     "Mostrar _MENU_ registros",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix":    "",
-                "sSearch":         "Buscar Por Codigo:",
-                "sUrl":            "",
-                "sInfoThousands":  ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst":    "",
-                    "sLast":     "",
-                    "sNext":     "",
-                    "sPrevious": ""
-                },
-                "oAria": {
-                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
-            },
-        });*/
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        },
+    });
+}
 
-//});
+
+function eliminar(idTempVenta, idVenta) {
+    if (confirm("¿Desea Eliminar El Registro?")) {
+        $.post("controlador/venta.php?op=eliminardetalle", { idTempVenta: idTempVenta }, function(data) {
+            console.log(data);
+        });
+        listar(idVenta);
+
+        alert("Registro Eliminado");
+    }
+}
