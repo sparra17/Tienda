@@ -675,7 +675,63 @@ go
 
 
 
+-----------------26/05
+--Calcular y actualizar total de venta
+
+alter PROCEDURE UpdateTotal
+    @idVenta INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Total float
+
+    -- Calcular total
+    SELECT @Total = SUM(Total)
+    FROM TempVentas
+    WHERE idVenta = @idVenta AND Estado = 1
+
+    -- Actualizar la tabla Venta
+    UPDATE Ventas
+    SET Monto = @Total
+    WHERE idVenta = @idVenta;
+
+	select Monto from Ventas where idVenta = @idVenta
+    SET NOCOUNT OFF;
+END;
 
 
-select * from Ventas
-select * from TempVentas where idVenta = 45
+--Guardar Venta y descontar del stock
+create procedure GuardarVenta 
+@idVenta int
+as  
+begin  
+ update Ventas  
+ set Estado = 1  
+ where  
+ idVenta = @idVenta
+
+	declare @id_registro int
+	declare @idProducto int
+	declare @Cantidad int
+
+		declare cur cursor for select idTempVenta from TempVentas where idVenta = @idVenta
+		open cur
+		fetch next from cur into @id_registro
+		while @@FETCH_STATUS = 0
+			begin
+				select @idProducto = idProducto from TempVentas where idTempVenta = @id_registro
+				select @Cantidad = Cantidad from TempVentas where idTempVenta = @id_registro
+			
+				update Productos
+				set Stock = Stock - @Cantidad
+				where idProducto = @idProducto
+
+				fetch next from cur into @id_registro
+			end
+		close cur
+		deallocate cur
+end  
+go
+
+

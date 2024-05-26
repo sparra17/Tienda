@@ -37,5 +37,23 @@
             $query -> execute();
         }
 
+        public function CalculoTotal($idVenta){
+            $conectar = parent::Conexion();
+            $sql = "UpdateTotal ?";
+            $query = $conectar -> prepare($sql);
+            $query -> bindValue(1,$idVenta);
+            $query -> execute();
+            return $query -> fetchAll(PDO::FETCH_ASSOC);    
+        }
+
+        public function GuardarVenta($idVenta){
+            $conectar = parent::Conexion();
+            $sql = "GuardarVenta ?";
+            $query = $conectar -> prepare($sql);
+            $query -> bindValue(1,$idVenta);
+            $query -> execute();
+            return $query -> fetchAll(PDO::FETCH_ASSOC);
+        }
+
     }
 ?>

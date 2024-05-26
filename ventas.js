@@ -80,6 +80,12 @@ $(document).on("click", "#btnagregar", function() {
         }, function(data) {
             console.log(data);
             listar(idVenta);
+
+            $.post("controlador/venta.php?op=calculo", { idVenta: idVenta }, function(data) {
+                console.log(data);
+                data = JSON.parse(data);
+                $("#txttotal").html(data.Total);
+            });
         });
     }
 });
@@ -136,8 +142,34 @@ function eliminar(idTempVenta, idVenta) {
         $.post("controlador/venta.php?op=eliminardetalle", { idTempVenta: idTempVenta }, function(data) {
             console.log(data);
         });
+
+        $.post("controlador/venta.php?op=calculo", { idVenta: idVenta }, function(data) {
+            console.log(data);
+            data = JSON.parse(data);
+            $("#txttotal").html(data.Total);
+        });
+
         listar(idVenta);
 
         alert("Registro Eliminado");
     }
 }
+
+
+
+$(document).on("click", "#Cobrar", function() {
+    var idVenta = $("#idVenta").val();
+
+    $.post("controlador/venta.php?op=calculo", { idVenta: idVenta }, function(data) {
+        data = JSON.parse(data);
+        console.log(data);
+        if (data.Total == null) {
+            alert('Error No Hay Productos Agregados');
+        } else {
+            $.post("controlador/venta.php?op=guardar", { idVenta: idVenta }, function(data) {
+                alert('Venta Registrada Correctamente con Nro: V-' + idVenta);
+                location.reload();
+            });
+        }
+    });
+});

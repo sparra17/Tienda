@@ -45,6 +45,17 @@ require_once ("../modelo/Venta.php");
             $venta -> EliminarTempVenta($_POST["idTempVenta"]);
             break;
 
+            case "calculo":
+                $datos = $venta -> CalculoTotal($_POST["idVenta"]);
+                foreach($datos as $row){
+                    $output["Total"] = $row["Monto"];
+                }
+                echo json_encode($output);
+                break;
+
+            case "guardar":
+            $datos = $venta -> GuardarVenta($_POST["idVenta"]);
+            break;
     }
 
 ?>
