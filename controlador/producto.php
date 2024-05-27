@@ -20,7 +20,8 @@
                 $sub_array[] = '<input type="text" name="" id="Cantidad" style="width: 70px;">';
                 $sub_array[] = '<input type="hidden" id="PrecioVenta" name="PrecioVenta" value="'.$row["PrecioVenta"].'"/>'.$row["PrecioVenta"];
 
-                $sub_array[] = '<Button class="AddProducto" id="btnagregar"><i class="fa-solid fa-plus"></i></Button>';
+                $sub_array[] = '
+                <Button class="AddProducto" id="btnagregar"><i class="fa-solid fa-plus"></i></Button>';
                 $data[] = $sub_array;
             }
             $results = array(
@@ -41,8 +42,10 @@
                 $sub_array[] = $row["Empresa"];
                 $sub_array[] = $row["Stock"];
                 $sub_array[] = $row["PrecioVenta"];
-                $sub_array[] = '<Button class="Editar" onClick="Editar()" id=""><i class="fa-solid fa-pen-to-square"></i></Button>
-                                <Button class="Eliminar" onClick="Eliminar()" id=""><i class="fa-solid fa-trash"></i></Button>';
+
+                $sub_array[] = '<Button class="Editar" onClick="" id=""><i class="fa-solid fa-pen-to-square"></i></Button>
+                <Button class="Eliminar" onClick="eliminar(' . $row["idProducto"] . ')" id="' . $row["idProducto"] . '"><i class="fa-solid fa-trash"></i></Button>';
+
                 $data[] = $sub_array;
             }
             $results = array(
@@ -76,7 +79,22 @@
             echo json_encode($results);
             break;
 
+        case "eliminar":
+            $producto -> EliminarProductos($_POST["idProducto"]);
+            break;
         
+        case "GuardarProducto":
+            $producto -> AgregarProducto(
+                    $_POST["Producto"],
+                    $_POST["Caducidad"],
+                    $_POST["Lote"],
+                    $_POST["idProveedor"],
+                    $_POST["idCategoria"],
+                    $_POST["Stock"],
+                    $_POST["PrecioVenta"],
+                    $_POST["PrecioCompra"]);
+
+            break;
     }
 
 ?>

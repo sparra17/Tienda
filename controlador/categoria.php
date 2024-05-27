@@ -26,6 +26,17 @@
             echo json_encode($results);
             break;
 
+        case "combo":
+                $datos = $categoria -> Categoria();
+                if(is_array($datos)==true and count($datos)>0){
+                    $html="";
+                    $html.="<option selected>Seleccionar</option>";
+                    foreach($datos as $row){
+                        $html.="<option value='".$row["idCategoria"]."'>".$row["Categoria"]."</option>";
+                    }
+                    echo $html;
+                }
+                break;
     }
 
 ?>

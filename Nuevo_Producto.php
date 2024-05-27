@@ -10,25 +10,28 @@
         <img src="img/perro.jpg">
         <div class="form">
           <form class="login-form">
+            <input type="hidden" name="idProducto" id="idProducto">
             <H4>AÑADIR PRODUCTO</H4>
-            <input type="text" placeholder="Producto"/>
-            <input type="text" placeholder="Proveedor"/>
+            <input type="text" name="Producto" id="Producto" placeholder="Producto"/>
             Caducidad:
-            <input type="date" placeholder="Caducidad"/>
-            <input type="text" placeholder="Lote"/>
-            <select name="proveedor" id="proveedor">
-              <option value="1">CocaCola</option>
-              <option value="2">Pepsi</option>
+            <input type="date" name="Caducidad" id="Caducidad" placeholder="Caducidad"/>
+            <input type="text" name="Lote" id="Lote" placeholder="Lote"/>
+            Proveedor:
+            <select name="idProveedor" id="idProveedor">
             </select>
-            <select name="Categoria" id="Categoria">
-              <option value="1">Congelados</option>
-              <option value="2">Enlatados</option>
-              <option value="3">Lacteos</option>
+            Categoria:
+            <select name="idCategoria" id="idCategoria">
             </select>
-            
-            <button>login</button>
+            <input type="text" name="Stock" id="Stock" placeholder="Stock"/>
+            <input type="text" name="PrecioVenta" id="PrecioVenta" placeholder="Precio Venta"/>
+            <input type="text" name="PrecioCompra" id="PrecioCompra" placeholder="Precio Compra"/>
+
+            <button id="Registrar">Registrar</button>
+            <a href="Inventario_administrar.php">Regresar</a>
           </form>
         </div>
       </div>
+      <?php require_once("js.php"); ?>
+    <script type="text/JAVASCRIPT" src="Nuevo_Producto.js"></script>
 </body>
 </html>

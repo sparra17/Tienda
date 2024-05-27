@@ -14,7 +14,7 @@ $(document).ready(function(){
         "bDestroy": true,
         "responsive": true,
         "bInfo": true,
-        "iDisplayLength": 3,
+        "iDisplayLength": 20,
         "order": [[0, "asc"]],
         "language":{
             "sProcessing":     "Procesando...",
@@ -43,3 +43,15 @@ $(document).ready(function(){
     });
     
 });
+
+
+function eliminar(idProducto) {
+    if (confirm("¿Desea Eliminar El Registro?")) {
+        $.post("controlador/producto.php?op=eliminar", { idProducto: idProducto }, function(data) {
+            console.log(data);
+        });
+
+        alert("Registro Eliminado");
+        location.reload();
+    }
+}

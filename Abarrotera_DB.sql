@@ -400,16 +400,16 @@ BEGIN
 END
 go
 
+select * from Productos
 
+update Productos set Estado = 1
+where Estado = 0
 -------Eliminar Productos
 CREATE PROCEDURE sp_EliminarProductos(
     @idProducto int
 )
 AS
 BEGIN
-    @existe INT
-    SET @existe = SELECT idProducto FROM Productos
-    where idProducto = @idProducto
     UPDATE Productos SET Estado=0
     WHERE idProducto=@idProducto
 END
@@ -448,11 +448,12 @@ BEGIN
 END
 go
 
+select * from Productos
+
 ----Agregar Nuevo Producto
-CREATE PROCEDURE AgregarProducto
+alter PROCEDURE AgregarProducto
     @Producto VARCHAR(100),
     @Caducidad DATE,
-    @Estado BIT,
     @Lote VARCHAR(20),
     @idProveedor INT,
     @idCategoria INT,
@@ -461,18 +462,17 @@ CREATE PROCEDURE AgregarProducto
     @PrecioCompra MONEY
 AS
 BEGIN
-    INSERT INTO Productos (Producto, Caducidad, Estado, Lote, idProveedor, idCategoria, Stock, PrecioVenta, PrecioCompra)
-    VALUES (@Producto, @Caducidad, @Estado, @Lote, @idProveedor, @idCategoria, @Stock, @PrecioVenta, @PrecioCompra);
+    INSERT INTO Productos (Producto, Caducidad,Lote, idProveedor, idCategoria, Stock, PrecioVenta, PrecioCompra,Estado)
+    VALUES (@Producto, @Caducidad, @Lote, @idProveedor, @idCategoria, @Stock, @PrecioVenta, @PrecioCompra,1);
 END
 go
 
 
 ---------Modificar Producto
-CREATE PROCEDURE ModificarProducto
+alter PROCEDURE ModificarProducto
     @idProducto INT,
     @Producto VARCHAR(100),
     @Caducidad DATE,
-    @Estado BIT,
     @Lote VARCHAR(20),
     @idProveedor INT,
     @idCategoria INT,
@@ -484,7 +484,6 @@ BEGIN
     UPDATE Productos
     SET Producto = @Producto,
         Caducidad = @Caducidad,
-        Estado = @Estado,
         Lote = @Lote,
         idProveedor = @idProveedor,
         idCategoria = @idCategoria,
@@ -735,3 +734,8 @@ end
 go
 
 
+select * from Productos
+-----Actualizar Producto-----
+
+select * from Ventas where idVenta =90
+select * from TempVentas where idVenta = 90
