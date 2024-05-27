@@ -701,7 +701,7 @@ END;
 
 
 --Guardar Venta y descontar del stock
-create procedure GuardarVenta 
+alter procedure GuardarVenta 
 @idVenta int
 as  
 begin  
@@ -714,13 +714,12 @@ begin
 	declare @idProducto int
 	declare @Cantidad int
 
-		declare cur cursor for select idTempVenta from TempVentas where idVenta = @idVenta
+		declare cur cursor for select idTempVenta from TempVentas where idVenta = @idVenta and Estado = 1
 		open cur
 		fetch next from cur into @id_registro
 		while @@FETCH_STATUS = 0
 			begin
-				select @idProducto = idProducto from TempVentas where idTempVenta = @id_registro
-				select @Cantidad = Cantidad from TempVentas where idTempVenta = @id_registro
+				select @idProducto = idProducto, @Cantidad = Cantidad from TempVentas where idTempVenta = @id_registro
 			
 				update Productos
 				set Stock = Stock - @Cantidad
@@ -734,8 +733,30 @@ end
 go
 
 
-select * from Productos
 -----Actualizar Producto-----
+----------------Listar Los Productos por id
+CREATE procedure SP_ListarProductosID
+@idProducto int
+as
+begin
+SELECT
+prod.idProducto,
+prod.Producto,
+prod.Caducidad,
+prod.Lote,
+prod.idProveedor,
+prod.idCategoria,
+prod.Stock,
+prod.PrecioVenta,
+prod.PrecioCompra,
+prod.Estado, 
+cat.Categoria,
+prov.Empresa
+FROM
+Productos as prod INNER JOIN
+Proveedores as prov ON prod.idProveedor = prov.idProveedor INNER JOIN
+Categorias as cat ON prod.idCategoria = cat.idCategoria
+ where prod.Estado = 1 and prod.idProducto = @idProducto
+end
+go
 
-select * from Ventas where idVenta =90
-select * from TempVentas where idVenta = 90

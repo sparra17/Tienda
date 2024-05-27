@@ -51,5 +51,15 @@
             $query -> execute();
         }
 
+        public function ProductoID($idProducto){
+            $conectar = parent::Conexion();
+            $sql = "SP_ListarProductosID ?";
+            $query = $conectar -> prepare($sql);
+            $query -> bindValue(1,$idProducto);
+            $query -> execute();
+            return $query -> fetchAll(PDO::FETCH_ASSOC);
+
+        }
+
     }
 ?>
