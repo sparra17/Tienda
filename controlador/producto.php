@@ -57,7 +57,7 @@
             echo json_encode($results);
             break;
 
-        case "inventarioreabastecer":
+        /*case "inventarioreabastecer":
             $datos = $producto -> Producto();
             $data = Array();
             foreach($datos as $row){
@@ -78,7 +78,7 @@
                 "iTotalDisplayRecords" => count($data),
                 "aaData" => $data);
             echo json_encode($results);
-            break;
+            break;*/
 
         case "eliminar":
             $producto -> EliminarProductos($_POST["idProducto"]);
@@ -125,6 +125,33 @@
                         $_POST["PrecioCompra"]);
     
                 break;
+
+            case "Reabastecer":
+            $datos = $producto -> ReabastecerProductos();
+            $data = Array();
+            foreach($datos as $row){
+                $sub_array = array();
+
+                $sub_array[] = '<input type="hidden" id="idProducto" name="idProducto" value="'.$row["idProducto"].'"/>
+                    '.$row["Producto"]
+                    ;
+                    
+                $sub_array[] = $row["Stock"];
+                $sub_array[] = '<input type="text" name="" id="Cantidad" style="width: 70px;">';
+                $sub_array[] = '<input type="hidden" id="PrecioVenta" name="PrecioVenta" value="'.$row["PrecioVenta"].'"/>'.$row["PrecioVenta"];
+
+                $sub_array[] = '
+                <Button class="AddProducto" id="btnagregar"><i class="fa-solid fa-plus"></i></Button>
+                ';
+                $data[] = $sub_array;
+            }
+            $results = array(
+                "sEcho" => 1,
+                "iTotalRecors" => count($data),
+                "iTotalDisplayRecords" => count($data),
+                "aaData" => $data);
+            echo json_encode($results);
+            break;
     }
 
 ?>

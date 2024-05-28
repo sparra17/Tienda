@@ -33,10 +33,9 @@
     </ul>
     <div id="Lista-Producto">
         <h4>Listado de inventario</h4>
-        <input type="text" id="buscador" placeholder="Buscador de productos">
         <br>
 
-            <div class="card-body">
+        <div class="card-body">
             <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                 <thead>
                     <tr>
@@ -48,6 +47,7 @@
                     </tr>
                 </thead>
                 <tbody>
+
                 </tbody>
             </table>
             </div>
@@ -56,7 +56,9 @@
     <div id="Lista-Venta">
         <h4>Listado de productos nuevos</h4>
         <br>
-            <table class="tabla-venta">
+        
+        <div class="card-body">
+        <table id="tabla_rebastecer" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                 <thead>
                     <tr>
                         <th id="Nombre">Producto</th>
@@ -67,24 +69,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Pan</td>
-                        <td>1</td>
-                        <td>30</td>
-                        <td>30</td>
-                        <td><button class="Basura"><i class="fa-solid fa-trash"></i></button></td>
-                    <tr>
-                        <td>Pan</td>
-                        <td>1</td>
-                        <td>30</td>
-                        <td>30</td>
-                        <td><button class="Basura"><i class="fa-solid fa-trash"></i></button></td>
-                    </tr>
+                <td><button class="Basura"><i class="fa-solid fa-trash"></i></button></td>
                 </tbody>
             </table>
+        </div>
             <button id="Cobrar">Añadir al inventario</button>
     </div>
     <?php require_once("js.php"); ?>
-    <script type="text/JAVASCRIPT" src="ventas.js"></script>
+    <script type="text/JAVASCRIPT" src="inventario_reabastecer.js"></script>
 </body>
 </html>

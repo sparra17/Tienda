@@ -296,6 +296,7 @@ go
 
 
 ---------Insertar un nuevo proveedor
+SP_InProveedores 'Armando','Nuñez','Lopez','M','Miguel Hidalgo','111111111','XXXXXXXXXXXXXXXX18','XXXXXXXXXXX13','PEPSICO'
 create PROCEDURE SP_InProveedores
     @Nombre VARCHAR(150),
     @Paterno VARCHAR(50),
@@ -320,9 +321,9 @@ BEGIN
 
     -- Insertar un nuevo empleado con el idPersona obtenido
     INSERT INTO Proveedores
-    (idPersona, Empresa)
+    (idPersona, Empresa,Estado)
     VALUES
-    (@idprov, @Empresa);
+    (@idprov, @Empresa,1);
 END;
 GO
 

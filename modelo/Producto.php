@@ -61,5 +61,14 @@
 
         }
 
+        public function ReabastecerProductos(){
+            $conectar = parent::Conexion();
+            $sql = "ReabastecerProductos";
+            $query = $conectar -> prepare($sql);
+            $query -> execute();
+            return $query -> fetchAll(PDO::FETCH_ASSOC);
+
+        }
+
     }
 ?>

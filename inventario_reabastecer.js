@@ -8,7 +8,7 @@ $(document).ready(function(){
         
         ],
         "ajax": {
-            url: "controlador/producto.php?op=inventarioreabastecer",
+            url: "controlador/producto.php?op=Reabastecer",
             type: "post"
         },
         "bDestroy": true,
@@ -42,4 +42,10 @@ $(document).ready(function(){
         },
     });
     
+    $.post("controlador/reabastecer.php?op=registrar",function(data){
+        console.log(data);
+        data=JSON.parse(data);
+        $('#idReabastecer').val(data.idReabastecer);
+    });
+
 });
