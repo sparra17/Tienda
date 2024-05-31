@@ -11,9 +11,8 @@
             $data = Array();
             foreach($datos as $row){
                 $sub_array = array();
-
                 $sub_array[] = $row["Categoria"];
-
+                $sub_array[] = $row["Refrigeracion"];
                 $sub_array[] = '<Button class="Editar" onClick="Editar()" id=""><i class="fa-solid fa-pen-to-square"></i></Button>
                                 <Button class="Eliminar" onClick="Eliminar()" id=""><i class="fa-solid fa-trash"></i></Button>';
                 $data[] = $sub_array;

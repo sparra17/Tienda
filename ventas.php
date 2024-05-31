@@ -31,7 +31,26 @@
               <a href="Nuevo_Empleado.php">Registrar</a>
               <a href="Corregir_Empleado.php">Corregir datos</a>
             </div></li>
-        <li><a href="proveedores_categorias.php">Proveedores y Categorias</a></li>    
+        <li>
+        <div class="dropdown">
+                <button class="dropbtn">Proveedores 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="Nuevo_Proveedor.php">Nuevo Proveedro</a>
+                  <a href="Lista_proveedores.php">Ver Proveedores</a>
+                </div>
+        </li>
+        <li>
+        <div class="dropdown">
+                <button class="dropbtn">Categorias 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="Nueva_Categoria.php">Nueva Categoria</a>
+                  <a href="Lista_Categorias.php">Ver Categorias</a>
+                </div>
+        </li> 
         <li><p id="user">Usuario</p></li>
         <li style="float:right"><a href="login.php" id="Salir">Salir</a></li>
       </ul>
