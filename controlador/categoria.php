@@ -37,6 +37,15 @@
                     echo $html;
                 }
                 break;
+        case "guardarCategoria":
+                $categoria->agregarCategoria($_POST["Categoria"],$_POST["Refrigeracion"]);
+                break;
+        case "modificarCategoria":
+                $categoria->modificarCategoria($_POST['Categoria'],$_POST['Refrigeracion'],$_POST['idCategoria']);
+                break;
+        case "eliminarCategoria":
+            $categoria->eliminarCategoria($_POST["idCategoria"]);
+            break;
     }
 
 ?>

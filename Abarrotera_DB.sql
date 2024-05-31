@@ -321,10 +321,10 @@ BEGIN
 
     -- Insertar un nuevo empleado con el idPersona obtenido
     INSERT INTO Proveedores
-    (idPersona, Empresa,Estado)
+    (idPersona, Empresa)
     VALUES
-    (@idprov, @Empresa,1);
-END;
+    (@idprov, @Empresa);
+END
 GO
 
 
@@ -497,20 +497,30 @@ go
 
 
 ---------Modificar Proveedor
+DROP PROCEDURE IF EXISTS ModificarProveedor
+GO
 CREATE PROCEDURE ModificarProveedor
-    @idProveedor INT,
-    @idPersona INT,
-    @Empresa VARCHAR(100),
-    @Estado BIT
+    @Nombre VARCHAR(150),
+    @Paterno VARCHAR(50),
+    @Materno VARCHAR(50),
+    @Sexo VARCHAR(2),
+    @Direccion VARCHAR(100),
+    @Telefono VARCHAR(10),
+    @Curp VARCHAR(18),
+    @RFC VARCHAR(13),
+	@Empresa varchar(50),
+    @idProveedor INT
 AS
 BEGIN
-    UPDATE Proveedores
-    SET idPersona = @idPersona,
-        Empresa = @Empresa,
-        Estado = @Estado
-    WHERE idProveedor = @idProveedor;
-END
-go
+    DECLARE @idPersona INT
+    set @idPersona = (SELECT idPersona from Proveedores WHERE idProveedor=@idProveedor)
+    UPDATE Personas SET
+    Nombre=@Nombre, Paterno=@Paterno, Materno=@Materno, Sexo=@Sexo, Direccion=@Direccion, Telefono=@Telefono, 
+    Curp=@Curp, RFC=@RFC WHERE idPersona =@idPersona
+
+       UPDATE Proveedores SET Empresa = @Empresa WHERE idProveedor =@idProveedor;
+END;
+GO
 
 
 --------Eliminar Proveedor
@@ -761,3 +771,38 @@ Categorias as cat ON prod.idCategoria = cat.idCategoria
 end
 go
 
+
+DROP PROCEDURE IF EXISTS AgregarCategoria
+GO
+CREATE PROCEDURE AgregarCategoria
+@Categoria VARCHAR(50),
+@Refrigeracion BIT
+AS
+BEGIN
+    INSERT INTO Categorias(Categoria,Refrigeracion,Estado) VALUES(@Categoria,@Refrigeracion,1)
+END
+GO
+
+
+DROP PROCEDURE IF EXISTS ModificarCategoria
+GO
+CREATE PROCEDURE ModificarCategoria
+@Categoria VARCHAR(50),
+@Refrigeracion BIT,
+@idCategoria INT
+AS
+BEGIN
+    UPDATE Categorias SET Categoria=@Categoria, Refrigeracion=@Refrigeracion WHERE idCategoria=@idCategoria
+END
+GO
+
+
+DROP PROCEDURE IF EXISTS EliminarCategoria
+GO
+CREATE PROCEDURE EliminarCategoria
+@idCategoria INT
+AS
+BEGIN
+    UPDATE Categorias SET Estado = 0 WHERE idCategoria= @idCategoria
+END
+GO

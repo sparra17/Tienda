@@ -37,6 +37,36 @@
                     echo $html;
                 }
                 break;
+            case "agregarProveedor":
+                $proveedor->agregarProveedor(
+                    $_POST["Nombre"],
+                    $_POST["Paterno"],
+                    $_POST["Materno"],
+                    $_POST["Sexo"],
+                    $_POST["Direccion"],
+                    $_POST["Telefono"],
+                    $_POST["Curp"],
+                    $_POST["RFC"],
+                    $_POST["Empresa"]
+                );
+                break;
+            case "modificarProveedor":
+                $proveedor->modificarProveedor(
+                    $_POST["Nombre"],
+                    $_POST["Paterno"],
+                    $_POST["Materno"],
+                    $_POST["Sexo"],
+                    $_POST["Direccion"],
+                    $_POST["Telefono"],
+                    $_POST["Curp"],
+                    $_POST["RFC"],
+                    $_POST["Empresa"],
+                    $_POST["idProveedor"]
+                );
+                break;
+            case "eliminarProveedor":
+                    $proveedor->eliminarProveedor($_POST["idProveedor"]);
+                break;
     }
 
 ?>
